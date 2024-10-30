@@ -5,7 +5,7 @@ import { getOffsetAndLimitFromReq } from "lib/requests";
 
 export default methods({
   async get(req: NextApiRequest, res: NextApiResponse) {
-    const { limit, offset } = getOffsetAndLimitFromReq(req, 30, 10);
+    const { limit, offset } = getOffsetAndLimitFromReq(req, 30, 0);
     const { q } = req.query;
     const query = await productsIndex.search(q as string, {
       hitsPerPage: limit,
